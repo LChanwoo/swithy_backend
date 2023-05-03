@@ -28,6 +28,14 @@ export class BoardService {
         @InjectRepository(BoardTagMap)
         private readonly boardTagMapRepository: Repository<BoardTagMap>,
     ) {}
+
+    async getMainPage() {
+        const notice = await this.getNotice(1,5);
+        const photo = await this.getPhoto(1,4,0);
+        const video = await this.getBoard(C_BoardCategory.VIDEO,1,4);
+        return {notice,photo,video};
+    }
+
     async getNotice(page: number = 1, pageSize: any = 5) {
         const notice = await this.getBoard(C_BoardCategory.NOTICE,page,pageSize)
         return notice;

@@ -35,6 +35,13 @@ export class BoardController {
                 tags
             );
     }
+
+    @Get('/main')
+    async getMainPage(){
+        return await this.boardService.getMainPage();
+    }
+
+
     @Get('/notice')
     async getNotice(@Query('page') page: any,@Query('pagesize') pageSize: any) {
         return await this.getNotice(page,pageSize);

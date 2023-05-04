@@ -3,8 +3,6 @@ import { BoardModule } from './board/board.module';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { Boards } from './entities/board.entity';
 import { BoardTagMap } from './entities/board_tag_map.entity';
@@ -33,8 +31,5 @@ import { Users } from './entities/user.entity';
       synchronize: true, // 스키마 자동 생성 여부
     }),
   ],
-  controllers: [
-      AppController],
-  providers: [AppService],
 })
 export class AppModule { }

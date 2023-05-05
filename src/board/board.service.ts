@@ -135,19 +135,14 @@ export class BoardService {
                 });
                 const btms = await this.boardTagMapRepository.save(boardTagMaps);
             }
-            
             const newBoard = await this.boardRepository.findOneOrFail( {
                 where: { boardid: id },
                 relations: ['comments', 'boardTagMap', 'boardTagMap.tags'],
             });
-            console.log("newBoard",newBoard)
             newBoard.title = title ?? board.title;
             newBoard.content = content ?? board.content;
             newBoard.thumbnail = thumbnail ?? board.thumbnail;
             const updatedBoard = await this.boardRepository.save(newBoard);
-
-            console.log("board3",board)
-            console.log("updatedBoard",updatedBoard)
             return updatedBoard;
         } catch (err) {
             if (err instanceof EntityNotFoundError) {

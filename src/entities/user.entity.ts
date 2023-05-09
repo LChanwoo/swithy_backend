@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn, Unique, CreateDateColumn, ManyToMany, JoinTable, ManyToOne } from 'typeorm';
 import { Boards } from './board.entity';
 import { Bookmarks } from './bookmark.entity';
@@ -41,6 +42,10 @@ export class Users {
     
     @CreateDateColumn()
     createdAt: Date;
+
+    @Exclude()
+    @Column({default: false})
+    is_superuser: boolean;
 
     get myboardsTotalPage () {
         return Math.ceil(this.myboards.length / 20);

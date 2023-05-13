@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { KakaoStrategy } from './kakao.strategy';
 import { NaverStrategy } from './naver.strategy';
 import { SessionSerializer } from './session.serializer';
+import { SuperStrategy } from './super.strategy';
 import { TestStrategy } from './test.strategy';
 
 @Module({
@@ -15,6 +16,6 @@ import { TestStrategy } from './test.strategy';
     TypeOrmModule.forFeature([Users]),
   ],
   controllers: [AuthController],
-  providers: [ AuthService,KakaoStrategy,NaverStrategy,TestStrategy,SessionSerializer],
+  providers: [ AuthService,KakaoStrategy,NaverStrategy,SuperStrategy,SessionSerializer],
 })
 export class AuthModule {}

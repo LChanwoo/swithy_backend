@@ -15,11 +15,15 @@ export class AuthController {
         return user;
     }
 
-    @Get('/naver')
+    @Post('/naver')
     @UseGuards(NaverAuthGuard)
     async naverAuth(@User() user :Users) {
         return user;
     }
+
+    @Post('/super')
+    async superAuth(@Req() req : any) {}
+
 
     @Post('/logout')
     @UseGuards(LoggedInGuard)

@@ -5,6 +5,7 @@ import { KakaoAuthGuard } from './kakao.guard';
 import { User } from '..//common/decorators/user.decorator';
 import { Users } from '..//entities/user.entity';
 import { LoggedInGuard } from '..//common/guards/logged-in.guard';
+import { SuperAuthGuard } from './super.guard';
 @Controller('v1/api/auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) {}
@@ -22,6 +23,7 @@ export class AuthController {
     }
 
     @Post('/super')
+    @UseGuards(SuperAuthGuard)
     async superAuth(@Req() req : any) {}
 
 

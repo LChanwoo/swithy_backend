@@ -28,6 +28,7 @@ export class AuthService {
 
     async superlogin(payload:any) {
         const email = payload.email;
+        const password = payload.password;
         const provider = 'SUPER';
         try{
             const user = await this.userRepository.findOne({where:{email,provider}});

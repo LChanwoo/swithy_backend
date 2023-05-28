@@ -11,7 +11,7 @@ export class SuccessInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     const ctx = context.switchToHttp();
     const response = ctx.getResponse();
-    const request = ctx.getRequest();
+    // const request = ctx.getRequest();
     const status = response.statusCode;
     return next.handle().pipe(
       map((data) => {

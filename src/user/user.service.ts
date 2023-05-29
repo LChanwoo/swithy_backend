@@ -184,7 +184,4 @@ export class UserService {
         userdata.profile_image=profile;
         return await this.userRepository.save(userdata);
     }
-
-        
-
 }

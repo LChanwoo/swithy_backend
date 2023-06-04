@@ -24,3 +24,4 @@ export class SuccessInterceptor implements NestInterceptor {
     );
   }
 }
+
